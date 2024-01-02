@@ -1,0 +1,28 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .wrapper {
+    text-align: center;
+  }
+  
+  .gradient-button {
+    background: linear-gradient(to right, #ff6b6b, #56ab2f);
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .gradient-button:hover {
+    background: linear-gradient(to left, #ff6b6b, #56ab2f);
+  }

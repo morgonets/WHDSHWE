@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>УРААААААААА</title>
+    <style>
+        body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #FFC0CB, #87CEEB);
+    text-align: center;
+}
+
+#birthday-card {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: bounce 1s ease infinite alternate;
+}
+
+h1 {
+    color: #ff69b4;
+}
+
+p {
+    color: #4b0082;
+    font-size: 1.2em;
+}
+
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(45deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#interactive-button {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#interactive-button:hover {
+    background-color: #d358a3;
+}
+    </style>
+</head>
+<body>
+<div id="birthday-card">
+    <h1>ПОЗДРОВЛЯЮ, ТЫ ПРОШЛА ЕТО ИПЫТАНИЕ</h1>
+    <p>Зняю было не легко</p>
+    <button id="interactive-button" onclick="surprise()">Нажми меня!</button>
+</div>
+
+<div id="confetti"></div>
+<script>
+    function createConfetti() {
+    const confetti = document.getElementById('confetti');
+
+    for (let i = 0; i < 200; i++) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.className = 'confetti';
+        confettiPiece.style.backgroundColor = getRandomColor();
+        confettiPiece.style.left = `${Math.random() * 100}vw`;
+        confettiPiece.style.animationDuration = `${Math.random() * 2 + 1}s`;
+
+        confetti.appendChild(confettiPiece);
+    }
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function surprise() {
+    alert("А я так и знал что ты пройдешь! 🎉");
+}
+
+createConfetti();
+</script>
+</body>
+</html>
